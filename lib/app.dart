@@ -6,8 +6,8 @@ const List<Map<String, String>> listData = [
     'page': '/slidePage',
   },
   {
-    'title': 'Page View',
-    'page': '/slidePage',
+    'title': 'Sheeps',
+    'page': '/sheepsPage',
   },
 ];
 

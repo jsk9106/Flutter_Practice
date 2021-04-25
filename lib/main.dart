@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practice/constatns.dart';
 import 'package:flutter_practice/page_view/page_view.dart';
+import 'package:flutter_practice/sheeps/first_screen.dart';
+import 'package:flutter_practice/sheeps/login_screen.dart';
 
 import 'app.dart';
 
@@ -13,14 +16,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      theme: themeData,
       initialRoute: '/',
       routes: {
         '/': (context) => App(),
         '/slidePage': (context) => SlidePage(),
+        '/sheepsPage': (context) => FirstScreen(),
+        '/loginPage': (context) => LoginScreen(),
       },
     );
   }
