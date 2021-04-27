@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice/constatns.dart';
-import 'package:flutter_practice/sheeps/custom_button.dart';
+import 'package:flutter_practice/sheeps/components/two_sentences.dart';
+import 'components/custom_button.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -10,6 +11,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final List<String> errors = [];
+  late final String email;
+  late final String password;
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +33,20 @@ class _LoginScreenState extends State<LoginScreen> {
               _buildPasswordFormField(),
               SizedBox(height: 30),
               errors.length != 0 ? _formErrors() : Container(),
+              SizedBox(height: 15),
               customButton(
                 '로그인',
                 () {
-                  if(_formKey.currentState!.validate()){
+                  if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
                   }
                 },
+              ),
+              SizedBox(height: 20),
+              TwoSentences(
+                sentence1: '아이디 또는 비밀번호가',
+                sentence2: '기억이 나지 않다면?',
+                press: () => print('tab!'),
               ),
             ],
           ),
@@ -75,16 +85,33 @@ class _LoginScreenState extends State<LoginScreen> {
   TextFormField _buildEmailFormField() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
+      onSaved: (value) => email = value!,
+      onChanged: (value) {
+        if (value.isNotEmpty && errors.contains(kEmailNullError)) {
+          setState(() {
+            errors.remove(kEmailNullError);
+          });
+        } else if (emailValidatorRegExp.hasMatch(value) &&
+            errors.contains(kInvalidEmailError)) {
+          setState(() {
+            errors.remove(kInvalidEmailError);
+          });
+        }
+        return null;
+      },
       validator: (value) {
         if (value!.isEmpty && !errors.contains(kEmailNullError)) {
           setState(() {
             errors.add(kEmailNullError);
           });
-        } else if(!emailValidatorRegExp.hasMatch(value) && !errors.contains(kInvalidEmailError)){
+        } else if (!emailValidatorRegExp.hasMatch(value) &&
+            !errors.contains(kInvalidEmailError) &&
+            !errors.contains(kEmailNullError)) {
           setState(() {
             errors.add(kInvalidEmailError);
           });
         }
+        return null;
       },
       decoration: InputDecoration(
         hintText: '이메일 입력',
@@ -94,6 +121,32 @@ class _LoginScreenState extends State<LoginScreen> {
 
   TextFormField _buildPasswordFormField() {
     return TextFormField(
+      obscureText: true,
+      onSaved: (value) => password = value!,
+      onChanged: (value) {
+        if (value.isNotEmpty && errors.contains(kPassNullError)) {
+          setState(() {
+            errors.remove(kPassNullError);
+          });
+        } else if (value.length >= 4 && errors.contains(kShortPassError)) {
+          setState(() {
+            errors.remove(kShortPassError);
+          });
+        }
+        return null;
+      },
+      validator: (value) {
+        if (value!.isEmpty && !errors.contains(kPassNullError)) {
+          setState(() {
+            errors.add(kPassNullError);
+          });
+        } else if (value.length < 4 && !errors.contains(kShortPassError)) {
+          setState(() {
+            errors.add(kShortPassError);
+          });
+        }
+        return null;
+      },
       decoration: InputDecoration(
         hintText: '비밀번호 입력',
       ),

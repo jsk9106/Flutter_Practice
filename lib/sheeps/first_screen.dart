@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice/sheeps/slide_model.dart';
 
-import 'custom_button.dart';
+import 'components/custom_button.dart';
+import 'components/two_sentences.dart';
 
 class FirstScreen extends StatefulWidget {
   @override
@@ -40,20 +41,12 @@ class _FirstScreenState extends State<FirstScreen> {
                 List.generate(slideList.length, (index) => _buildDot(index)),
           ),
           SizedBox(height: 20),
-          customButton('시작하기', (){}),
+          customButton('시작하기', () {}),
           SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('이미 계정을 보유하고 있다면 '),
-              GestureDetector(
-                onTap: () => Navigator.pushNamed(context, '/loginPage'),
-                child: Text(
-                  '로그인',
-                  style: TextStyle(color: Colors.green),
-                ),
-              ),
-            ],
+          TwoSentences(
+            sentence1: '이미 계정을 보유하고 있다면',
+            sentence2: '로그인',
+            press: () => Navigator.pushNamed(context, '/loginPage'),
           ),
         ],
       ),
