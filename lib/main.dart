@@ -3,6 +3,8 @@ import 'package:flutter_practice/constatns.dart';
 import 'package:flutter_practice/page_view/page_view.dart';
 import 'package:flutter_practice/sheeps/first_screen.dart';
 import 'package:flutter_practice/sheeps/login_screen.dart';
+import 'package:flutter_practice/sheeps_profile/detail_screen.dart';
+import 'package:flutter_practice/sheeps_profile/sheeps_profile.dart';
 
 import 'app.dart';
 
@@ -15,7 +17,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Practice',
       theme: themeData,
       initialRoute: '/',
       routes: {
@@ -23,6 +26,8 @@ class MyApp extends StatelessWidget {
         '/slidePage': (context) => SlidePage(),
         '/sheepsPage': (context) => FirstScreen(),
         '/loginPage': (context) => LoginScreen(),
+        '/profile': (context) => SheepsProfile(),
+        DetailScreen.routeName: (context) => DetailScreen(),
       },
     );
   }

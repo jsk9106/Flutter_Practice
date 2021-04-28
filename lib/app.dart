@@ -9,6 +9,10 @@ const List<Map<String, String>> listData = [
     'title': 'Sheeps',
     'page': '/sheepsPage',
   },
+  {
+    'title': 'Profile',
+    'page': '/profile'
+  }
 ];
 
 class App extends StatelessWidget {
