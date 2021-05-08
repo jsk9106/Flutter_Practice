@@ -12,6 +12,10 @@ const List<Map<String, String>> listData = [
   {
     'title': 'Profile',
     'page': '/profile'
+  },
+  {
+    'title': 'Drop Down',
+    'page': '/dropDown'
   }
 ];
 

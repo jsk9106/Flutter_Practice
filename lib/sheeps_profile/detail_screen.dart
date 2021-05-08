@@ -23,8 +23,7 @@ class DetailScreen extends StatelessWidget {
                 children: [
                   _buildTitleAndButton(profile), // 사진
                   SizedBox(height: 10),
-                  Row(
-                    // 인포 버튼
+                  Row( // 인포 버튼
                     children: List.generate(profile.info.length,
                         (index) => buildInfoCard(profile.info[index])),
                   ),
