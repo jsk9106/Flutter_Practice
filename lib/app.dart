@@ -16,7 +16,11 @@ const List<Map<String, String>> listData = [
   {
     'title': 'Drop Down',
     'page': '/dropDown'
-  }
+  },
+  {
+    'title': 'Provider test',
+    'page': '/provider'
+  },
 ];
 
 class App extends StatelessWidget {
