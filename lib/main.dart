@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice/constatns.dart';
 import 'package:flutter_practice/drop_down/drop_down.dart';
+import 'package:flutter_practice/inner_shadow/inner_shadow_screen.dart';
 import 'package:flutter_practice/page_view/page_view.dart';
 import 'package:flutter_practice/provider_test/Provider_test.dart';
 import 'package:flutter_practice/provider_test/provider/count_provider.dart';
 import 'package:flutter_practice/sheeps/first_screen.dart';
 import 'package:flutter_practice/sheeps/login_screen.dart';
+import 'package:flutter_practice/sheeps_community/provider/community_provider.dart';
+import 'package:flutter_practice/sheeps_community/sheeps_community_Screen.dart';
 import 'package:flutter_practice/sheeps_profile/detail_screen.dart';
 import 'package:flutter_practice/sheeps_profile/sheeps_profile.dart';
 import 'package:get/get.dart';
@@ -23,7 +26,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => CountProvider())
+        ChangeNotifierProvider(create: (context) => CountProvider()),
+        ChangeNotifierProvider(create: (context) => CommunityProvider()),
       ],
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
@@ -39,6 +43,8 @@ class MyApp extends StatelessWidget {
           DetailScreen.routeName: (context) => DetailScreen(),
           DropDown.routeName: (context) => DropDown(),
           '/provider': (context) => ProviderTest(),
+          '/SheepsCommunity': (context) => SheepsCommunityScreen(),
+          '/InnerShadow': (context) => InnerShadowScreen(),
         },
       ),
     );

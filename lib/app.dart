@@ -21,6 +21,14 @@ const List<Map<String, String>> listData = [
     'title': 'Provider test',
     'page': '/provider'
   },
+  {
+    'title': 'Sheeps Community',
+    'page': '/SheepsCommunity',
+  },
+  {
+    'title': 'Inner Shadow',
+    'page': '/InnerShadow',
+  },
 ];
 
 class App extends StatelessWidget {
