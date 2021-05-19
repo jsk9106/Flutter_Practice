@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practice/blur/blur_screen.dart';
 import 'package:flutter_practice/constatns.dart';
 import 'package:flutter_practice/drop_down/drop_down.dart';
 import 'package:flutter_practice/inner_shadow/inner_shadow_screen.dart';
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
           '/provider': (context) => ProviderTest(),
           '/SheepsCommunity': (context) => SheepsCommunityScreen(),
           '/InnerShadow': (context) => InnerShadowScreen(),
+          '/Blur': (context) => BlurScreen(),
         },
       ),
     );

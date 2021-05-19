@@ -29,6 +29,10 @@ const List<Map<String, String>> listData = [
     'title': 'Inner Shadow',
     'page': '/InnerShadow',
   },
+  {
+    'title': 'Blur Effect',
+    'page': '/Blur',
+  },
 ];
 
 class App extends StatelessWidget {
