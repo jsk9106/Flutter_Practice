@@ -33,6 +33,10 @@ const List<Map<String, String>> listData = [
     'title': 'Blur Effect',
     'page': '/Blur',
   },
+  {
+    'title': 'GetX Test',
+    'page': '/GetXTest',
+  },
 ];
 
 class App extends StatelessWidget {

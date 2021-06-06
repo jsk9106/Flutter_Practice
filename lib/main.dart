@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practice/blur/blur_screen.dart';
 import 'package:flutter_practice/constatns.dart';
 import 'package:flutter_practice/drop_down/drop_down.dart';
+import 'package:flutter_practice/getx_test/getx_text_screen.dart';
 import 'package:flutter_practice/inner_shadow/inner_shadow_screen.dart';
 import 'package:flutter_practice/page_view/page_view.dart';
 import 'package:flutter_practice/provider_test/Provider_test.dart';
@@ -47,6 +48,7 @@ class MyApp extends StatelessWidget {
           '/SheepsCommunity': (context) => SheepsCommunityScreen(),
           '/InnerShadow': (context) => InnerShadowScreen(),
           '/Blur': (context) => BlurScreen(),
+          '/GetXTest': (context) => GetXTestScreen(),
         },
       ),
     );
